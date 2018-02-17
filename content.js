@@ -32,7 +32,7 @@ if (document.URL.substring(0, dsturl1.length) == dsturl1 ||
 
 		if (localStorage.getItem('macro') == "true") {
 			$(".btn_inq").append('<a href="#" onclick="macrostop();" style="font-size:15px; margin-left:5px;"><img src="' + chrome.extension.getURL('btn_stop.png') + '"></a>');
-			
+
 		} else {
 			$(".btn_inq").append('<a href="#" onclick="macro();" style="font-size:15px; margin-left:5px;"><img src="' + chrome.extension.getURL('btn_start.png') + '"></a>');
 		}
@@ -104,7 +104,7 @@ if (document.URL.substring(0, dsturl1.length) == dsturl1 ||
 								img = $(firstSpecials[j]).children('img');
 								src = $(img).attr('src');
 								if (src == "/docs/2007/img/common/icon_apm_bl.gif" || src == "/docs/2007/img/common/icon_apm_rd.gif") {
-									redirectPage($(coachSpecials[j]).attr('href'));
+									redirectPage($(firstSpecials[j]).attr('href'));
 									succeed = true;
 									break;
 								}
@@ -129,7 +129,7 @@ if (document.URL.substring(0, dsturl1.length) == dsturl1 ||
 					chrome.extension.sendMessage({type: 'playSound'}, function(data) { });
 				} else {
 					// 모두 실패한 경우
-					setTimeout(function() { 
+					setTimeout(function() {
 					location.href = "javascript:inqSchedule();";
 					}, 500);
 				}
